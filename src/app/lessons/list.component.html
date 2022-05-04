@@ -1,0 +1,33 @@
+<h1>Clases</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-3">Registrar clase</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Clase</th>
+            <th style="width: 30%">Descripción</th>
+            <th style="width: 30%">Pertenece al curso</th>
+            <th style="width: 10%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lesson of lessons">
+            <td>{{lesson.clase | uppercase}}</td>
+            <td>{{lesson.descripcion}}</td>
+            <td>{{lesson.curso}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{lesson.id}}" class="btn btn-sm btn-primary mr-1">Editar</a>
+                <button (click)="deleteUser(lesson.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="lesson.isDeleting">
+                    <span *ngIf="lesson.isDeleting" class="spinner-border spinner-border-sm"></span>
+                    <span *ngIf="!lesson.isDeleting">Borrar</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!lessons">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

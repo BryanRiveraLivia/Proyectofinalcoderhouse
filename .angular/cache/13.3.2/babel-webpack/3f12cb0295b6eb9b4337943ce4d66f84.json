@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Course {\n  constructor() {\n    this.isDeleting = false;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

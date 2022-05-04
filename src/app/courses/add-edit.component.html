@@ -1,0 +1,34 @@
+<h1 *ngIf="isAddMode">Crear Registro Clase</h1>
+<h1 *ngIf="!isAddMode">Editar Clase</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col-12">
+            <label>Curso</label>
+            <input type="text" formControlName="curso" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.curso.errors }" />
+            <div *ngIf="submitted && f.curso.errors" class="invalid-feedback">
+                <div *ngIf="f.curso.errors.required">El nombre del curso es obligatorio</div>
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label>Descripcion</label>
+            <input type="text" formControlName="descripcion" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.descripcion.errors }" />
+            <div *ngIf="submitted && f.descripcion.errors" class="invalid-feedback">
+                <div *ngIf="f.descripcion.errors.required">La descripción es obligatoria</div>
+            </div>
+        </div>
+        <div class="form-group col-12">
+            <label>Tutor</label>
+            <input type="text" formControlName="tutor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.tutor.errors }" />
+            <div *ngIf="submitted && f.tutor.errors" class="invalid-feedback">
+                <div *ngIf="f.tutor.errors.required">El nombre del tutor es obligatorio</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Guardar
+        </button>
+        <a routerLink="/courses" class="btn btn-link">Cancelar</a>
+    </div>
+</form>

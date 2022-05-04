@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Alumnos</a>
+        <a class="nav-item nav-link" routerLink="/lessons" routerLinkActive="active">Clases</a>
+        <a class="nav-item nav-link" routerLink="/courses" routerLinkActive="active">Cursos</a>
+    </div>
+</nav>
+
+
+<div class="app-container bg-light">
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="text-center mt-4">
+    <p>
+        <a href="#" target="_top">Tarea #4 para CODERHOUSE</a>
+    </p>
+</div>
